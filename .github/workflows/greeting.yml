@@ -9,7 +9,7 @@ on:
 
 jobs:
   job1:
-    uses: .github/workflows/reusable-greeting-workflow.yml@main
+    uses: gkzz/experimental/.github/workflows/reusable-greeting-workflow.yml@main
 
   job2:
     runs-on: ubuntu-latest
