@@ -25,4 +25,5 @@ jobs:
         uses: ./.github/actions/echo-action
         with:
           greeting: ${{ inputs.greeting }}
+      - run: echo ${{ steps.foo.outputs.result }}
       - run: echo "result=${{ steps.foo.outputs.result }}" >> $GITHUB_OUTPUT
