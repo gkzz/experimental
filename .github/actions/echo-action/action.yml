@@ -13,6 +13,6 @@ runs:
     - name: main
       id: echo-greeting-id
       shell: bash
-      run: echo "result=$( echo $GREETING !)" >> $GITHUB_OUTPUT
+      run: echo "result=$( echo ${{ env.GREETING }} !)" >> $GITHUB_OUTPUT
       env:
         GREETING: ${{ inputs.greeting }}
