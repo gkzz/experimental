@@ -10,6 +10,8 @@ on:
 jobs:
   job1:
     uses: gkzz/experimental/.github/workflows/reusable-greeting-workflow.yml@main
+    with:
+      greeting: ${{ inputs.greeting }}
 
   job2:
     runs-on: ubuntu-latest
