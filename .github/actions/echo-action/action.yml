@@ -1,0 +1,18 @@
+name: Greeting
+description: My Greeting
+inputs:
+  greeting:
+    description: あいさつしよう
+outputs:
+  result:
+    value: ${{ steps.echo-greeting-id.putputs.result }}
+    description: あいさつした output
+runs:
+  using: composite
+  steps:
+    - name: main
+      id: echo-greeting-id
+      shell: bash
+      run: echo "result=$( echo ${GREETING}!)" >> $GITHUB_OUTPUT
+      env:
+        GREETING: ${{ inputs.greeting }}
