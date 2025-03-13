@@ -10,7 +10,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
     - name: main
       id: echo-greeting-id
       shell: bash
