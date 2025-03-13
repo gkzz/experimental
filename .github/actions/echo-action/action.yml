@@ -5,7 +5,7 @@ inputs:
     description: あいさつしよう
 outputs:
   result:
-    value: ${{ steps.echo-greeting-id.putputs.result }}
+    value: ${{ steps.echo-greeting-id.outputs.result }}
     description: あいさつした output
 runs:
   using: composite
