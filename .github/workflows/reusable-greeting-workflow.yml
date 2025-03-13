@@ -19,10 +19,9 @@ jobs:
     outputs:
       result: ${{ steps.foo.outputs.result }}
     steps:
-      - uses: actions/checkout@v4
       - name: main
         id: foo
-        uses: ./.github/actions/echo-action@main
+        uses: ./.github/actions/echo-action
         with:
           greeting: ${{ inputs.greeting }}
       - run: echo "result=${{ steps.foo.outputs.result }}" >> $GITHUB_OUTPUT
