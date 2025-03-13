@@ -1,27 +1,18 @@
-name: Reusable Greeting Workflow
+name: My Greeting
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       greeting:
-        required: true
         type: string
-    #secrets:
-    outputs:
-      result:
-        description: "my output"
-        value: ${{ jobs.echo-greeting.outputs.result }}
+        description: "あいさつしよう"
 
 jobs:
-  echo-greeting:
+  job1:
+    uses: .github/workflows/reusable-greeting-workflow.yml@main
+
+  job2:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    outputs:
-      result: ${{ steps.foo.outputs.result }}
+    needs: job1
     steps:
-      - name: main
-        id: foo
-        uses: ./.github/actions/echo-action@main
-        with:
-          greeting: ${{ inputs.greeting }}
-      - run: echo "result=${{ steps.foo.outputs.result }}" >> $GITHUB_OUTPUT
+      - run: echo ${{ needs.job1.outputs.result }}
